@@ -347,7 +347,7 @@ var questions = Array(
     },
     
 /*39*/    {question:"The code block shown below should extract the value for column sqft from the first row of DataFrame storesDF. Choose the response that correctly fills in the numbered blanks within the code block to complete this task.<br/>Code block:<br/>__1__.__2__.__3__",
-        A:'<ol><li>1. storesDF</li><li>first</li><li>col("sqft")</li></ol>',
+        A:'<ol><li>storesDF</li><li>first</li><li>col("sqft")</li></ol>',
         B:'<ol><li>storesDF</li><li>first</li><li>sqft</li></ol>',
         C:'<ol><li>storesDF</li><li>first</li><li>["sqft"]</li></ol>',
         D:'<ol><li>storesDF</li><li>first()</li><li>sqft</li></ol>',
