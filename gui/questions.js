@@ -6,6 +6,7 @@ var questions = Array(
         D:" The Spark driver is responsible for scheduling the execution of data by various worker nodes in cluster mode.",
         E:" The Spark driver should be as close as possible to worker nodes for optimal performance.",
         correct:"B",
+        isAnswered: false,
     },
 
 /*2*/    {question:"Which of the following describes nodes in cluster-mode Spark?",
@@ -15,6 +16,7 @@ var questions = Array(
         D:" There are driver nodes and worker nodes, both of which can scale horizontally.",
         E:" Worker nodes are machines that host the executors responsible for the execution of tasks.",
         correct:"E",
+        isAnswered: false,
     },
 
 /*3*/    {question:"Which of the following statements about slots is true?",
@@ -24,6 +26,7 @@ var questions = Array(
         D:" Slots are not used in cluster mode.",
         E:" Slots are resources for parallelization within a Spark application.",
         correct:"E",
+        isAnswered: false,
     },
 
 /*4*/    {question:"Which of the following is a combination of a block of data and a set of transformers that will run on a single executor?",
@@ -33,6 +36,7 @@ var questions = Array(
         D:" Task",
         E:" Slot",
         correct:"D",
+        isAnswered: false,
     },
 
 /*5*/    {question:"Which of the following is a group of tasks that can be executed in parallel to compute the same set of operations on potentially multiple machines?",
@@ -42,6 +46,7 @@ var questions = Array(
         D:" Task",
         E:" Stage",
         correct:"E",
+        isAnswered: false,
     },
     
 /*6*/    {question:"Which of the following describes a shuffle?",
@@ -51,6 +56,7 @@ var questions = Array(
         D:" A shuffle is the process by which partitions are ordered for write.",
         E:" A shuffle is the process by which tasks are ordered for execution.",
         correct:"A",
+        isAnswered: false,
     },
     
 /*7*/    {question:"DataFrame df is very large with a large number of partitions, more than there are executors in the cluster. Based on this situation, which of the following is incorrect? Assume there is one core per executor.",
@@ -60,6 +66,7 @@ var questions = Array(
         D:" There will be a lot of overhead associated with managing resources for data processing within each task.",
         E:" There might be risk of out-of-memory errors depending on the size of the executors in the cluster.",
         correct:"A",
+        isAnswered: false,
     },
     
 /*8*/    {question:"Which of the following operations will trigger evaluation?",
@@ -69,6 +76,7 @@ var questions = Array(
         D:" DataFrame.join()",
         E:" DataFrame.count()",
         correct:"E",
+        isAnswered: false,
     },
     
 /*9*/    {question:"Which of the following describes the difference between transformations and actions?",
@@ -78,6 +86,7 @@ var questions = Array(
         D:" Actions work on DataFrames/Datasets while transformations are reserved for native language objects",
         E:" Transformations are business logic operations that do not induce execution while actions are execution triggers focused on returning results.",
         correct:"E",
+        isAnswered: false,
     },
     
 /*10*/    {question:"Which of the following DataFrame operations is always classified as a narrow transformation?",
@@ -87,6 +96,7 @@ var questions = Array(
         D:" DataFrame.select()",
         E:" DataFrame.join()",
         correct:"D",
+        isAnswered: false,
     },
     
 /*11*/    {question:"Spark has a few different execution/deployment modes: cluster, client, and local. Which of the following describes Spark's execution/deployment mode?",
@@ -96,6 +106,7 @@ var questions = Array(
         D:" Spark's execution/deployment mode determines exactly how many nodes the driver will connect to when a Spark application is run",
         E:" Spark's execution/deployment mode determines whether results are run interactively in a notebook environment or in batch",
         correct:"A",
+        isAnswered: false,
     },
     
 /*12*/    {question:"Which of the following cluster configurations will ensure the completion of a Spark application in light of a worker node failure?",
@@ -105,6 +116,7 @@ var questions = Array(
         D:" Scenario #5",
         E:" Scenario #6",
         correct:"B",
+        isAnswered: false,
         image: "images/12.png",
         extra:"Note: each configuration has roughly the same compute power using 100GB of RAM and 200 cores."
     },
@@ -116,6 +128,7 @@ var questions = Array(
         D:"An out-of-memory error occurs when the Spark application calls too many transformations in a row without calling an action regardless of the size of the data object on which the transformations are operating",
         E:"An out-of-memory error occurs when too much data is allocated to the driver for computational purposes.",
         correct:"A",
+        isAnswered: false,
     },
     
 /*14*/    {question:"Which of the following is the default storage level for persist() for a non-streaming DataFrame/Dataset?",
@@ -125,6 +138,7 @@ var questions = Array(
         D:"MEMORY_ONLY_SER",
         E:"MEMORY_ONLY",
         correct:"A",
+        isAnswered: false,
     },
     
 /*15*/    {question:"Which of the following describes a broadcast variable?",
@@ -134,6 +148,7 @@ var questions = Array(
         D:" A broadcast variable is entirely cached on each worker node so it doesn't need to be shipped or shuffled between nodes with each stage.",
         E:"A broadcast variable is saved to the disk of each worker node to be easily read into memory when needed.",
         correct:"D",
+        isAnswered: false,
     },
     
 /*16*/    {question:"Which of the following operations is most likely to induce a skew in the size of your data's partitions?",
@@ -143,6 +158,7 @@ var questions = Array(
         D:"DataFrame.coalesce(n)",
         E:"DataFrame.persist()",
         correct:"D",
+        isAnswered: false,
     },
     
 /*17*/    {question:"Which of the following data structures are Spark DataFrames built on top of?",
@@ -152,6 +168,7 @@ var questions = Array(
         D:"Vectors",
         E:"SQL Tables",
         correct:"C",
+        isAnswered: false,
     },
     
 /*18*/    {question:"Which of the following code blocks returns a DataFrame containing only column storeId and column division from DataFrame storesDF?",
@@ -161,6 +178,7 @@ var questions = Array(
         D:'storesDF.select(col("storeId", "division"))',
         E:' storesDF.select(storeId).select(division)',
         correct:"C",
+        isAnswered: false,
     },
     
 /*19*/    {question:"Which of the following code blocks returns a DataFrame containing all columns from DataFrame storesDF except for column sqft and column customerSatisfaction? </br> A sample of DataFrame storesDF is below:",
@@ -170,6 +188,7 @@ var questions = Array(
         D:'storesDF.drop(sqft, customerSatisfaction)',
         E:'storesDF.drop(col(sqft), col(customerSatisfaction))',
         correct:"A",
+        isAnswered: false,
         image: "images/19.png"
     },
     
@@ -180,6 +199,7 @@ var questions = Array(
         D:'The sign in the logical condition inside filter() needs to be changed from <= to >=.',
         E:'The column name sqft needs to be wrapped in the col() function like storesDF.filter(col(sqft) <= 25000).',
         correct:"B",
+        isAnswered: false,
     },
     
 /*21*/    {question:"The code block shown below should return a DataFrame containing only the rows from DataFrame storesDF where the value in column sqft is less than or equal to 25,000 OR the value in column customerSatisfaction is greater than or equal to 30. Choose the response that correctly fills in the numbered blanks within the code block to complete this task.</br> Code block:</br> storesDF.__1__(__2__ __3__ __4__)",
@@ -189,6 +209,7 @@ var questions = Array(
         D:'<ol><li>filter</li><li>col("sqft") <= 25000</li><li>or</li><li>col("customerSatisfaction") >= 30</li></ol>',
         E:'<ol><li>filter</li><li>(col("sqft") <= 25000)</li><li>or</li><li>(col("customerSatisfaction") >= 30)</li></ol>',
         correct:"A",
+        isAnswered: false,
     },
     
 /*22*/    {question:"Which of the following operations can be used to convert a DataFrame column from one type to another type?",
@@ -198,6 +219,7 @@ var questions = Array(
         D:"col().coerce()",
         E:"col()",
         correct:"A",
+        isAnswered: false,
     },
     
 /*23*/    {question:"Which of the following code blocks returns a new DataFrame with a new column sqft100 that is 1/100th of column sqft in DataFrame storesDF? Note that column sqft100 is not in the original DataFrame storesDF.",
@@ -207,6 +229,7 @@ var questions = Array(
         D:'storesDF.withColumn("sqft100", col("sqft") / 100)',
         E:'storesDF.newColumn("sqft100", sqft / 100)',
         correct:"D",
+        isAnswered: false,
     },
     
 /*24*/    {question:"Which of the following code blocks returns a new DataFrame from DataFrame storesDF where column numberOfManagers is the constant integer 1?",
@@ -216,6 +239,7 @@ var questions = Array(
         D:'storesDF.withColumn("numberOfManagers", lit("1"))',
         E:'storesDF.withColumn("numberOfManagers", IntegerType(1))',
         correct:"C",
+        isAnswered: false,
     },
     
 /*25*/    {question:"The code block shown below contains an error. The code block intends to return a new DataFrame where column storeCategory from DataFrame storesDF is split at the underscore character into column storeValueCategory and column storeSizeCategory. Identify the error.<br/> A sample of DataFrame storesDF is displayed below:",
@@ -225,6 +249,7 @@ var questions = Array(
         D:"The index values of 0 and 1 are not correct — they should be 1 and 2, respectively",
         E:"The withColumn() operation cannot be called twice in a row.",
         correct:"B",
+        isAnswered: false,
         image: "images/25.png",
         extra: 'Code block:<br/>(storesDF.withColumn(<br/>      "storeValueCategory", col("storeCategory").split("_")[0]<br/>).withColumn(<br/>"storeSizeCategory", col("storeCategory").split("_")[1]<br/>)<br/>)'
     },
@@ -236,6 +261,7 @@ var questions = Array(
         D:" arrays_zip()",
         E:"unpack()",
         correct:"C",
+        isAnswered: false,
     },
     
 /*27*/    {question:"Which of the following code blocks returns a new DataFrame where column storeCategory is an all-lowercase version of column storeCategory in DataFrame storesDF? Assume DataFrame storesDF is the only defined language variable.",
@@ -245,6 +271,7 @@ var questions = Array(
         D:'storesDF.withColumn("storeCategory", lower("storeCategory"))',
         E:'storesDF.withColumn("storeCategory", lower(storeCategory))',
         correct:"A",
+        isAnswered: false,
     },
     
 /*28*/    {question:'The code block shown below contains an error. The code block is intended to return a new DataFrame where column division from DataFrame storesDF has been renamed to column state and column managerName from DataFrame storesDF has been renamed to column managerFullName. Identify the error.<br/>Code block:<br/>(storesDF.withColumnRenamed("state", "division")<br/>.withColumnRenamed("managerFullName", "managerName"))',
@@ -254,6 +281,7 @@ var questions = Array(
         D:'The first argument to operation withColumnRenamed() should be the old column name and the second argument should be the new column name',
         E:'The operation withColumnRenamed() should be replaced with withColumn().',
         correct:"D",
+        isAnswered: false,
     },
     
 /*29*/    {question:"Which of the following code blocks returns a DataFrame where rows in DataFrame storesDF containing missing values in every column have been dropped?",
@@ -263,6 +291,7 @@ var questions = Array(
         D:'storesDF.na.drop()',
         E:'storesDF.na.drop("all")',
         correct:"E",
+        isAnswered: false,
     },
     
 /*30*/    {question:"Which of the following operations fails to return a DataFrame where every row is unique?",
@@ -272,6 +301,7 @@ var questions = Array(
         D:"DataFrame.dropDuplicates()",
         E:'DataFrame.drop_duplicates(subset = "all")',
         correct:"E",
+        isAnswered: false,
     },
     
 /*31*/    {question:"Which of the following code blocks will not always return the exact number of distinct values in column division?",
@@ -281,6 +311,7 @@ var questions = Array(
         D:'storesDF.select("division").dropDuplicates().count()',
         E:'storesDF.select("division").distinct().count()',
         correct:"A",
+        isAnswered: false,
     },
     
 /*32*/    {question:'The code block shown below should return a new DataFrame with the mean of column sqft from DataFrame storesDF in column sqftMean. Choose the response that correctly fills in the numbered blanks within the code block to complete this task.<br/>Code block:<br/>storesDF.__1__(__2__(__3__).alias("sqftMean"))',
@@ -290,6 +321,7 @@ var questions = Array(
         D:'<ol><li>agg</li><li>mean</li><li>"sqft"</li></ol>',
         E:'<ol><li>agg</li><li>average</li><li>col("sqft")</li></ol>',
         correct:"A",
+        isAnswered: false,
     },
     
 /*33*/    {question:"Which of the following code blocks returns the number of rows in DataFrame storesDF?",
@@ -299,6 +331,7 @@ var questions = Array(
         D:"storesDF.count()",
         E:"storesDF.agg(count())",
         correct:"D",
+        isAnswered: false,
     },
     
 /*34*/    {question:"Which of the following code blocks returns the sum of the values in column sqft in DataFrame storesDF grouped by distinct value in column division?",
@@ -308,6 +341,7 @@ var questions = Array(
         D:'storesDF.groupby.agg(sum(col("sqft")))',
         E:'storesDF.groupBy("division").agg(sum(col("sqft")))',
         correct:"E",
+        isAnswered: false,
     },
     
 /*35*/    {question:"Which of the following code blocks returns a DataFrame containing summary statistics only for column sqft in DataFrame storesDF?",
@@ -317,6 +351,7 @@ var questions = Array(
         D:'storesDF.describeColumn("sqft")',
         E:'storesDF.summary()',
         correct:"B",
+        isAnswered: false,
     },
     
 /*36*/    {question:"Which of the following operations can be used to sort the rows of a DataFrame?",
@@ -326,6 +361,7 @@ var questions = Array(
         D:" orderBy()",
         E:"sort()",
         correct:"A",
+        isAnswered: false,
     },
     
 /*37*/    {question:"The code block shown below contains an error. The code block is intended to return a 15 percent sample of rows from DataFrame storesDF without replacement. Identify the error.<br/>Code block:<br/>storesDF.sample(True, fraction = 0.15)",
@@ -335,6 +371,7 @@ var questions = Array(
         D:"The sample() operation is not reproducible.",
         E:"The first argument True sets the sampling to be with replacement.",
         correct:"E",
+        isAnswered: false,
     },
     
 /*38*/    {question:"Which of the following operations can be used to return the top n rows from a DataFrame?",
@@ -344,6 +381,7 @@ var questions = Array(
         D:"DataFrame.show(n)",
         E:"DataFrame.collect(n)",
         correct:"B",
+        isAnswered: false,
     },
     
 /*39*/    {question:"The code block shown below should extract the value for column sqft from the first row of DataFrame storesDF. Choose the response that correctly fills in the numbered blanks within the code block to complete this task.<br/>Code block:<br/>__1__.__2__.__3__",
@@ -353,6 +391,7 @@ var questions = Array(
         D:'<ol><li>storesDF</li><li>first()</li><li>sqft</li></ol>',
         E:'<ol><li>storesDF</li><li>first()</li><li>col("sqft")</li></ol>',
         correct:"D",
+        isAnswered: false,
     },
     
 /*40*/    {question:"Which of the following lines of code prints the schema of a DataFrame?",
@@ -362,6 +401,7 @@ var questions = Array(
         D:"DataFrame.printSchema()",
         E:"DataFrame.schema()",
         correct:"D",
+        isAnswered: false,
     },
     
 /*41*/    {question:'In what order should the below lines of code be run in order to create and register a SQL UDF named "ASSESS_PERFORMANCE" using the Python function assessPerformance and apply it to column customerSatistfaction in table stores?<br/>Lines of code:<ol><li>spark.udf.register("ASSESS_PERFORMANCE", assessPerformance)</li><li>spark.sql("SELECT customerSatisfaction,assessPerformance(customerSatisfaction) AS result FROM stores")</li><li>spark.udf.register(assessPerformance, "ASSESS_PERFORMANCE")</li><li>spark.sql("SELECT customerSatisfaction,ASSESS_PERFORMANCE(customerSatisfaction) AS result FROM stores")</li></ol>',
@@ -371,6 +411,7 @@ var questions = Array(
         D:"2",
         E:"1, 2",
         correct:"B",
+        isAnswered: false,
     },
     
 /*42*/    {question:'In what order should the below lines of code be run in order to create a Python UDF assessPerformanceUDF() using the integer-returning Python function assessPerformance and apply it to column customerSatisfaction in DataFrame storesDF?<br/>Lines of code:<br/><ol><li>assessPerformanceUDF = udf(assessPerformance, IntegerType)</li><li>assessPerformanceUDF = spark.register.udf("ASSESS_PERFORMANCE",assessPerformance)</li><li>assessPerformanceUDF = udf(assessPerformance, IntegerType())</li><li>storesDF.withColumn("result",assessPerformanceUDF(col("customerSatisfaction")))</li><li>storesDF.withColumn("result",assessPerformance(col("customerSatisfaction")))</li><li>storesDF.withColumn("result",ASSESS_PERFORMANCE(col("customerSatisfaction")))</li></ol>',
@@ -380,6 +421,7 @@ var questions = Array(
         D:"1, 4",
         E:"2, 5",
         correct:"A",
+        isAnswered: false,
     },
     
 /*43*/    {question:"Which of the following operations can execute a SQL query on a table?",
@@ -389,6 +431,7 @@ var questions = Array(
         D:"DataFrame.createOrReplaceTempView()",
         E:"DataFrame.createTempView()",
         correct:"C",
+        isAnswered: false,
     },
     
 /*44*/    {question:"Which of the following code blocks creates a single-column DataFrame from Python list years which is made up of integers?",
@@ -398,6 +441,7 @@ var questions = Array(
         D:"spark.createDataFrame(years)",
         E:"spark.createDataFrame(years, IntegerType)",
         correct:"B",
+        isAnswered: false,
     },
     
 /*45*/    {question:"Which of the following operations can be used to cache a DataFrame only in Spark’s memory assuming the default arguments can be updated?",
@@ -407,6 +451,7 @@ var questions = Array(
         D:"DataFrame.persist()",
         E:"DataFrame.cache()",
         correct:"D",
+        isAnswered: false,
     },
     
 /*46*/    {question:"The code block shown below contains an error. The code block is intended to return a new 4-partition DataFrame from the 8-partition DataFrame storesDF without inducing a shuffle. Identify the error.<br/>Code block:<br/>storesDF.repartition(4)",
@@ -416,6 +461,7 @@ var questions = Array(
         D:"The repartition operation induced a full shuffle. The coalesce operation should be used instead.",
         E:"The repartition operation cannot guarantee the number of result partitions.",
         correct:"D",
+        isAnswered: false,
     },
     
 /*47*/    {question:"Which of the following code blocks will always return a new 12-partition DataFrame from the 8-partition DataFrame storesDF?",
@@ -425,6 +471,7 @@ var questions = Array(
         D:"storesDF.coalesce()",
         E:'storesDF.coalesce(12, "storeId")',
         correct:"C",
+        isAnswered: false,
     },
     
 /*48*/    {question:"Which of the following Spark config properties represents the number of partitions used in wide transformations like join()?",
@@ -434,6 +481,7 @@ var questions = Array(
         D:"spark.shuffle.file.buffer",
         E:"spark.default.parallelism",
         correct:"A",
+        isAnswered: false,
     },
     
 /*49*/    {question:'In what order should the below lines of code be run in order to return a DataFrame containing a column openDateString, a string representation of Java’s SimpleDateFormat?<br/>Note that column openDate is of type integer and represents a date in the UNIX epoch format — the number of seconds since midnight on January 1st, 1970.<br/>An example of Java'+"'s"+' SimpleDateFormat is "Sunday, Dec 4, 2008 1:05 PM".<br/>A sample of storesDF is displayed below:',
@@ -443,6 +491,7 @@ var questions = Array(
         D:"2, 4",
         E:"6, 1",
         correct:"B",
+        isAnswered: false,
         image: "images/49.png",
         extra:'Lines of code:<ol><li>storesDF.withColumn("openDateString",from_unixtime(col("openDate"), simpleDateFormat))</li><li>simpleDateFormat = "EEEE, MMM d, yyyy h:mm a"</li><li>storesDF.withColumn("openDateString",from_unixtime(col("openDate"), SimpleDateFormat()))</li><li>storesDF.withColumn("openDateString",date_format(col("openDate"), simpleDateFormat))</li><li>storesDF.withColumn("openDateString",date_format(col("openDate"), SimpleDateFormat()))</li><li>simpleDateFormat = "wd, MMM d, yyyy h:mm a"</li></ol>'
     },
@@ -454,6 +503,7 @@ var questions = Array(
         D:'storesDF.withColumn("month", substr(col("openDate"), 4, 2))',
         E:'storesDF.withColumn("month", month(col("openDate")))',
         correct:"B",
+        isAnswered: false,
         image:"images/50.png"
     },
     
@@ -464,6 +514,7 @@ var questions = Array(
         D:"DataFrame.merge()",
         E:"DataFrame.crossJoin()",
         correct:"B",
+        isAnswered: false,
     },
     
 /*52*/    {question:"Which of the following code blocks returns a new DataFrame that is the result of an outer join between DataFrame storesDF and DataFrame employeesDF on column storeId?",
@@ -473,6 +524,7 @@ var questions = Array(
         D:'storesDF.join(employeesDF, "outer", storesDF.storeId == employeesDF.storeId)',
         E:'storesDF.merge(employeesDF, "outer", col("storeId"))',
         correct:"A",
+        isAnswered: false,
     },
     
 /*53*/    {question:'The below code block contains an error. The code block is intended to return a new DataFrame that is the result of an inner join between DataFrame storesDF and DataFrame employeesDF on column storeId and column employeeId which are in both DataFrames. Identify the error.<br/>Code block:<br/>storesDF.join(employeesDF, [col("storeId"), col("employeeId")])',
@@ -482,6 +534,7 @@ var questions = Array(
         D:'There is no DataFrame.join() operation — DataFrame.merge() should be used instead.',
         E:'The references to "storeId" and "employeeId" should not be inside the col() function — removing the col() function should result in a successful join.',
         correct:"E",
+        isAnswered: false,
     },
     
 /*54*/    {question:"Which of the following Spark properties is used to configure the broadcasting of a DataFrame without the use of the broadcast() operation?",
@@ -491,6 +544,7 @@ var questions = Array(
         D:"spark.broadcast.compress",
         E:"spark.executor.memoryOverhead",
         correct:"A",
+        isAnswered: false,
     },
     
 /*55*/    {question:"The code block shown below should return a new DataFrame that is the result of a cross join between DataFrame storesDF and DataFrame employeesDF. Choose the response that correctly fills in the numbered blanks within the code block to complete this task.<br/>Code block:<br/>__1__.__2__(__3__)",
@@ -500,6 +554,7 @@ var questions = Array(
         D:'<ol><li>storesDF</li><li>join</li><li>employeesDF, "storeId", "cross"</li></ol>',
         E:'<ol><li>storesDF</li><li>crossJoin</li><li>employeesDF</li></ol>',
         correct:"E",
+        isAnswered: false,
     },
     
 /*56*/    {question:"Which of the following operations performs a position-wise union on two DataFrames?",
@@ -509,6 +564,7 @@ var questions = Array(
         D:"DataFrame.unionByName()",
         E:"DataFrame.union()",
         correct:"E",
+        isAnswered: false,
     },
     
 /*57*/    {question:"Which of the following code blocks writes DataFrame storesDF to file path filePath as parquet?",
@@ -518,6 +574,7 @@ var questions = Array(
         D:"storesDF.write(filePath)",
         E:"storesDF.write.parquet(filePath)",
         correct:"E",
+        isAnswered: false,
     },
     
 /*58*/    {question:'The code block shown below contains an error. The code block is intended to write DataFrame storesDF to file path filePath as parquet and partition by values in column division. Identify the error<br/>Code block:<br/>storesDF.write.repartition("division").parquet(filePath)',
@@ -527,6 +584,7 @@ var questions = Array(
         D:"DataFrame.write is an operation — it should be followed by parentheses to return a DataFrameWriter.",
         E:"The mode() operation must be called to specify that this write should not overwrite existing files.",
         correct:"C",
+        isAnswered: false,
     },
     
 /*59*/    {question:"Which of the following code blocks reads a parquet at the file path filePath into a DataFrame?",
@@ -536,6 +594,7 @@ var questions = Array(
         D:"spark.read.parquet(filePath)",
         E:"spark.read().path(filePath)",
         correct:"D",
+        isAnswered: false,
     },
     
 /*60*/    {question:"Which of the following code blocks reads JSON at the file path filePath into a DataFrame with the specified schema schema?",
@@ -545,6 +604,7 @@ var questions = Array(
         D:'spark.read.schema("schema").format("json").load(filePath)',
         E:'spark.read.schema(schema).format("json").load(filePath)',
         correct:"E",
+        isAnswered: false,
     }
 
 )

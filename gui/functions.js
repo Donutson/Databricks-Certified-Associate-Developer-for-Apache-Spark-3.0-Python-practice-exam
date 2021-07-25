@@ -23,18 +23,15 @@ function checkAnswer(){
         if(id == questions[numQuestion].correct.toLocaleLowerCase()){
             $("#box-"+id+" label:first-child").css("color", "green")
 
-            if(firstClick){
+            if(!questions[numQuestion].isAnswered){
                 points += 1
-                firstClick = false
             }
 
         }else{
             $("#box-"+id+" label:first-child").css("color", "red")
-            firstClick = false
         }
 
-        console.log(numQuestion, questions.length)
-
+        questions[numQuestion].isAnswered = true
         /*if(numQuestion == (questions.length - 1)){*/
         showScore()
         /*}*/
@@ -42,10 +39,9 @@ function checkAnswer(){
     })
 }
 
-function nextQuestion(){
-    console.log("nextQuestion call")
-    // Do it only if we haven't reach the last question
-    if(numQuestion != (questions.length - 1)){
+function moveQuestion(pas){
+    // Do it only if we haven't reach the last question and are not on first question
+    if((numQuestion != (questions.length - 1))){
         // Answers box cleaning
         $("#box-a").html("<label for='answer-a'>A </label><input type='radio' name='answer' id='answer-a'><label for='answer-a' id='a'> </label>")
         $("#box-b").html("<label for='answer-b'>B </label><input type='radio' name='answer' id='answer-b'><label for='answer-b' id='b'> </label>")
@@ -54,31 +50,48 @@ function nextQuestion(){
         $("#box-e").html("<label for='answer-e'>E </label><input type='radio' name='answer' id='answer-e'><label for='answer-e' id='e'> </label>")
 
         // Go to next question
-        numQuestion += 1
+        numQuestion += pas
 
         // Disabled the next button
         if(numQuestion == (questions.length - 1)){
-            clearNext()
+            clearButton("#next")
+        }else{
+            clearButton("#next", false)
+        }
+
+        // Disabled the prev button
+        if(numQuestion == 0){
+            clearButton("#prev")
+        }else{
+            clearButton("#prev", false)
         }
 
         // Loading question and answers
         fillQuestion(numQuestion)
         fillAnswers(numQuestion)
 
+        if(questions[numQuestion].isAnswered){
+            $("#box-"+questions[numQuestion].correct.toLocaleLowerCase()+" label:first-child").css("color", "green")
+        }
+
         checkAnswer()
 
-        firstClick = true
     }
 
 }
 
-function clearNext(){
-    $("button").prop("disabled", true)
+function clearButton(button, disable=true){
+        $(button).prop("disabled", disable)
 }
 
 function showScore(){
     let percent = (points/questions.length)*100 +''
     console.log(percent)
     percent = percent.substring(0,2)
+
+    if(percent.substring(1,2) == '.'){
+        percent = percent.substring(0,1)
+    }
+
     $("#score").html("Score: "+points+"/"+questions.length+" ("+percent+"%)")
 }

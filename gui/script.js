@@ -2,6 +2,8 @@ var numQuestion = -1
 var points = 0
 var firstClick = false
 
-nextQuestion()
+moveQuestion(1)
+$("#prev").prop("disabled", true)
 
-$("button").click(nextQuestion)
+$("#prev").click(()=>{moveQuestion(-1)})
+$("#next").click(()=>{moveQuestion(1)})
